@@ -6,4 +6,12 @@ class Movie < ApplicationRecord
   def sort_actors
     actors.order(:age)
   end
+
+  def average_age_of_actors
+    if actors.empty?
+      0
+    else
+      actors.average(:age).round(2)
+    end 
+  end
 end
